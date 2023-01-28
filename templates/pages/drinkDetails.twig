@@ -1,0 +1,73 @@
+{% extends "partials/layout.twig" %}
+{% block title %}
+    {{ drink.name|capitalize }}
+{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="/mix-it/public/css/drinkDetails.css" />
+{% endblock %}
+
+{% block content %}
+    <main id="main-cont">
+        <div class="main-details">
+            <img class="main-img" src="{{ drink.img }}" alt="{{ drink.name }}" />
+            <div>
+                <h2>{{ drink.name }}</h2>
+                <p>Type: {{ drink.type }}</p>
+                <p>Glass: {{ drink.glass }}</p>
+                <br />
+                <h4>Ingredents</h4>
+                <ul>
+                    {% for ingredent in drink.ingredents %}
+                        <li>
+                            <span>
+                                {% if ingredent[0] != null %}
+                                    {{ ingredent[0] }}
+                                {% else %}
+                                    ?
+                                {% endif %}
+                            </span> - <span class="ingredent">{{ ingredent[1] }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="instruct-cont">
+            <h4>Instructions</h4>
+            <p>{{ drink.instructions }}</p>
+        </div>
+
+        <p>
+            Tags: 
+            {% if drink.tags|length > 1 %}
+                {% for tag in drink.tags %}
+                    <a class="tag-link"> {{tag|capitalize}}<a>
+                    {% if loop.index < drink.tags|length %}
+                    ,
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                None
+            {% endif %}
+        </p>
+
+        <h4 data-name="{{ drink.name }}">Similar Drinks</h4>
+        <div style="background-color: black" id="similar-carousel" class="carousel slide">
+            <div class="carousel-indicators">
+            </div>
+            <div class="carousel-inner">
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#similar-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#similar-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </main>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/mix-it/public/scripts/drinkDetails.js"></script>
+{% endblock %}

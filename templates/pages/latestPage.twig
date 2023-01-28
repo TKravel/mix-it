@@ -1,0 +1,26 @@
+{% extends "partials/layout.twig" %}
+{% block title %}
+    New drinks
+{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="/mix-it/public/css/popularPage.css" />
+{% endblock %}
+
+{% block content %}
+    <main id="main-cont">
+        <h1>Recently added</h1>
+        <div class="card-container">
+            {% for drink in newDrinks %}
+                <div class="thumb-card" data-drinkId="{{ drink.id }}" onClick="handleSelection(event)">
+                    <img class="img-thumb" src="{{ drink.img }}" alt="{{ drink.name }}" />
+                    <p>{{ drink.name }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+    </main>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/mix-it/public/scripts/popularPage.js"></script>
+{% endblock %}

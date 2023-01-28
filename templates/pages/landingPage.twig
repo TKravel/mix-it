@@ -1,0 +1,37 @@
+{% extends "partials/layout.twig" %}
+{% block styles %}
+    <link rel="stylesheet" href="public/css/landingPage.css" />
+{% endblock %}
+
+{% block content %}
+    <main id="main-cont">
+        <h1>Mix-It</h1>
+        <p>Lets get to mixin</p>
+        <div>
+            <h2>Popular drinks</h2>
+            <div class="card-container">
+                {% for popular in popularDrinks %}
+                    <div class="thumb-card" data-drinkId="{{ popular.id }}" onClick="handleSelection(event)">
+                        <img class="img-thumb" src="{{ popular.img }}" alt="{{ popular.name }}" />
+                        <p>{{ popular.name }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <h2>Latest additions</h2>
+            <div class="card-container">
+                {% for latest in latestDrinks %}
+                    <div class="thumb-card" data-drinkId="{{ latest.id }}" onClick="handleSelection(event)">
+                        <img class="img-thumb" src="{{ latest.img }}" alt="{{ latest.name }}" />
+                        <p>{{ latest.name }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block scripts %}
+    <script src="public/scripts/landingPage.js"></script>
+{% endblock %}

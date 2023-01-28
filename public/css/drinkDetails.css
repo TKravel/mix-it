@@ -1,0 +1,21 @@
+.main-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3rem 0;
+}
+
+.main-img {
+  border-radius: 100%;
+  width: 300px;
+}
+
+.instruct-cont {
+  max-width: 600px;
+}
+
+#similar-carousel {
+  width: 500px;
+  margin: 3rem auto;
+}
