@@ -7,12 +7,12 @@
 {% endblock %}
 
 {% block content %}
-    <main id="main-cont">
-        <h1>Popular drinks</h1>
-        <div class="card-container">
+    <main id="main-cont" class="p-3 p-md-5 py-5">
+        <h1 class="text-center my-3">Popular drinks</h1>
+        <div class="d-flex flex-row flex-wrap justify-content-evenly">
             {% for popular in popularDrinks %}
-                <div class="thumb-card" data-drinkId="{{ popular.id }}" onClick="handleSelection(event)">
-                    <img class="rounded-circle" src="{{ popular.img }}" alt="{{ popular.name }}" />
+                <div class="thumb-card text-center rounded-circle p-3 m-3 m-md-5" data-drinkId="{{ popular.id }}" onClick="handleSelection(event)">
+                    <img class="rounded-circle img-fluid mb-2" src="{{ popular.img }}" alt="{{ popular.name }}" />
                     <p>{{ popular.name }}</p>
                 </div>
             {% endfor %}

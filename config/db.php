@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * DB Class
+ * Used to connect to mySQL database.
+ * Added for future use
+ */
 class DB {
     private $host = '';
     private $user = '';

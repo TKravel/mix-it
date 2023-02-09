@@ -1,29 +1,35 @@
 {% extends "partials/layout.twig" %}
-{% block styles %}
-    <link rel="stylesheet" href="public/css/landingPage.css" />
+{% block title %}
+    MiX-iT!
 {% endblock %}
 
 {% block content %}
-    <main id="main-cont">
-        <h1>Mix-It</h1>
-        <p>Lets get to mixin</p>
+    <main id="main-cont" class="p-3 p-md-5">
+        <div class="text-center p-2 my-5">
+            <h1>Mix-It!</h1>
+            <p>
+                Instructions, ingredents, and suggestions.
+                <br />
+                Everything you need to mix up your night.
+            </p>
+        </div>
         <div>
-            <h2>Popular drinks</h2>
-            <div class="card-container">
+            <h2 class="text-center my-3">Popular drinks</h2>
+            <div class="d-flex flex-row flex-wrap justify-content-evenly">
                 {% for popular in popularDrinks %}
-                    <div class="thumb-card" data-drinkId="{{ popular.id }}" onClick="handleSelection(event)">
-                        <img class="img-thumb" src="{{ popular.img }}" alt="{{ popular.name }}" />
+                    <div class="thumb-card text-center rounded-circle p-3 rounded-circle p-3 m-3 m-md-5" data-drinkId="{{ popular.id }}" onClick="handleSelection(event)">
+                        <img class="rounded-circle img-fluid mb-2" src="{{ popular.img }}" alt="{{ popular.name }}" />
                         <p>{{ popular.name }}</p>
                     </div>
                 {% endfor %}
             </div>
         </div>
-        <div>
-            <h2>Latest additions</h2>
-            <div class="card-container">
+        <div class="pt-5">
+            <h2 class="text-center my-3">Latest additions</h2>
+            <div class="d-flex flex-row flex-wrap justify-content-evenly">
                 {% for latest in latestDrinks %}
-                    <div class="thumb-card" data-drinkId="{{ latest.id }}" onClick="handleSelection(event)">
-                        <img class="img-thumb" src="{{ latest.img }}" alt="{{ latest.name }}" />
+                    <div class="thumb-card text-center rounded-circle p-3 m-3 m-md-5" data-drinkId="{{ latest.id }}" onClick="handleSelection(event)">
+                        <img class="rounded-circle img-fluid mb-2" src="{{ latest.img }}" alt="{{ latest.name }}" />
                         <p>{{ latest.name }}</p>
                     </div>
                 {% endfor %}

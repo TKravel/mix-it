@@ -7,55 +7,46 @@
 {% endblock %}
 
 {% block content %}
-    <main id="main-cont">
-        <div class="main-details">
-            <img class="main-img" src="{{ drink.img }}" alt="{{ drink.name }}" />
-            <div>
-                <h2>{{ drink.name }}</h2>
-                <p>Type: {{ drink.type }}</p>
-                <p>Glass: {{ drink.glass }}</p>
-                <br />
-                <h4>Ingredents</h4>
-                <ul>
-                    {% for ingredent in drink.ingredents %}
-                        <li>
-                            <span>
-                                {% if ingredent[0] != null %}
-                                    {{ ingredent[0] }}
-                                {% else %}
-                                    ?
-                                {% endif %}
-                            </span> - <span class="ingredent">{{ ingredent[1] }}</span>
-                        </li>
-                    {% endfor %}
-                </ul>
+    <main id="main-cont" class="pb-3">
+        <div class="main-details-wrapper mx-auto pt-md-5 text-center">
+            <div class="main-details d-flex flex-column flex-sm-row justify-content-sm-center d-md-inline-flex mx-md-auto">
+                <img class="main-img w-75 rounded-circle m-5"  src="{{ drink.img }}" alt="{{ drink.name }}" />
+                <div class="main-stats text-start mx-5 mb-5 m-sm-5">
+                    <h1 class="fs-4 mb-2">{{ drink.name }}</h1>
+                    <p>Type: {{ drink.type }}</p>
+                    <p>Glass: {{ drink.glass }}</p>
+                    <br />
+                    <h2 class="fs-5 mb-2">Ingredents</h2>
+                    <ul>
+                        {% for ingredent in drink.ingredents %}
+                            <li>
+                                <span>
+                                    {% if ingredent[0] != null %}
+                                        {{ ingredent[0] }}
+                                    {% else %}
+                                        ?
+                                    {% endif %}
+                                </span> - <span class="ingredent">{{ ingredent[1] }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="instruct-cont">
-            <h4>Instructions</h4>
-            <p>{{ drink.instructions }}</p>
-        </div>
-
-        <p>
-            Tags: 
-            {% if drink.tags|length > 1 %}
-                {% for tag in drink.tags %}
-                    <a class="tag-link"> {{tag|capitalize}}<a>
-                    {% if loop.index < drink.tags|length %}
-                    ,
-                    {% endif %}
-                {% endfor %}
+        <div class="instruct-cont mx-auto my-5 p-4">
+            <h2 class="fs-5 mb-2">Instructions</h2>
+            {% if drink.instructions == '' %}
+                <p>Mix to taste</p>
             {% else %}
-                None
+                <p>{{ drink.instructions }}</p>
             {% endif %}
-        </p>
+        </div>
 
-        <h4 data-name="{{ drink.name }}">Similar Drinks</h4>
-        <div style="background-color: black" id="similar-carousel" class="carousel slide">
-            <div class="carousel-indicators">
-            </div>
-            <div class="carousel-inner">
-            </div>
+        
+        <div id="similar-carousel" class="carousel slide text-center mx-auto">
+            <h2 class="fs-5" data-name="{{ drink.name }}">Similar Drinks</h2>
+            <div class="carousel-indicators"></div>
+            <div class="carousel-inner"></div>
             <button class="carousel-control-prev" type="button" data-bs-target="#similar-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>

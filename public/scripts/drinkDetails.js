@@ -5,6 +5,11 @@ const carouselIndicators = document.getElementsByClassName(
 )[0];
 const drinkName = document.querySelector("[data-name]").dataset.name;
 
+/**
+ * Dynamically create carousel items from array of drink data
+ *
+ * @param {array} drinkArr
+ */
 const createCarouselItems = (drinkArr) => {
   let indicators = "";
   let items = "";
@@ -25,7 +30,7 @@ const createCarouselItems = (drinkArr) => {
         }" class="d-block w-100 rounded-circle" style="cursor: pointer" alt="${
       drink.strDrink
     }""></a>
-        <h3 class="text-center">${drink.strDrink}</h3>
+        <p class="carousel-drink-name">${drink.strDrink}</p>
         </div>
         
         </div>
@@ -35,10 +40,9 @@ const createCarouselItems = (drinkArr) => {
   carouselInner.innerHTML = items;
 };
 
-const handleSelection = (id) => {
-  console.log(id);
-};
-
+/**
+ * Fetch similar drinks for carousel. Grabs top 2 ingredients to search by and passes them in the body. On respose calls createCarouselItems
+ */
 const fetchDrinks = () => {
   let data = {
     ingredents: [ingredents[0].innerText, ingredents[1].innerText],
@@ -54,7 +58,7 @@ const fetchDrinks = () => {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.length > 1) {
+      if (data.length > 0) {
         createCarouselItems(data);
       } else {
         console.log("error");
@@ -65,4 +69,5 @@ const fetchDrinks = () => {
     });
 };
 
+// on load call fetchDrinks callback
 window.addEventListener("load", fetchDrinks);

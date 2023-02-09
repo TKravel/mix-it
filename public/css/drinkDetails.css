@@ -1,21 +1,64 @@
 .main-details {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  padding: 3rem 0;
+  background-color: #1c2541;
 }
 
-.main-img {
-  border-radius: 100%;
-  width: 300px;
+@media only screen and (min-width: 577px) {
+  .main-img {
+    width: 200px !important;
+    height: 200px !important;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .main-img {
+    width: 250px !important;
+    height: 250px !important;
+  }
 }
 
 .instruct-cont {
+  background-color: #1c2541;
   max-width: 600px;
 }
 
-#similar-carousel {
-  width: 500px;
-  margin: 3rem auto;
+@media only screen and (min-width: 577px) {
+  #similar-carousel {
+    width: 350px;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  #similar-carousel {
+    width: 500px;
+  }
+}
+
+#similar-carousel h2 {
+  color: #6fffe9;
+}
+
+.carousel-drink-name {
+  color: #6fffe9;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='%235bc0be' fill-rule='evenodd' clip-rule='evenodd'%3E%3Cpath d='M20 .755l-14.374 11.245 14.374 11.219-.619.781-15.381-12 15.391-12 .609.755z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='%235bc0be' fill-rule='evenodd' clip-rule='evenodd'%3E%3Cpath d='M4 .755l14.374 11.245-14.374 11.219.619.781 15.381-12-15.391-12-.609.755z'/%3E%3C/svg%3E");
+}
+
+.carousel-indicators button {
+  background-color: #5bc0be !important;
+}
+
+.tag-link {
+  color: #6fffe9;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.tag-link:visited {
+  color: #5bc0be;
 }

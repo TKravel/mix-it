@@ -4,17 +4,17 @@ use Slim\Factory\AppFactory;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 
 $app = AppFactory::create();
 
 $app->setBasePath('/mix-it');
 $app->addBodyParsingMiddleware();
-require __DIR__ . '/../config/routes.php';
+require __DIR__ . '/config/routes.php';
 
 // Create Twig
-$twig = Twig::create('C:\xampp\htdocs\mix-it\templates', ['cache' => false, 'debug' => true]);
+$twig = Twig::create(__DIR__ . '/templates', ['cache' => false, 'debug' => true]);
 
 // Add Twig-View Middleware
 $app->add(TwigMiddleware::create($app, $twig));

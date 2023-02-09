@@ -1,11 +1,47 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav id="top-nav" class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">MiX-iT!</a>
-    <form class="d-flex" role="search">
-    <input id="search-bar" class="form-control" list="autocompleteOptions" type="search" placeholder="Search" aria-label="Search">
-    <datalist id="autocompleteOptions">
-    </datalist>
-    <button class="btn btn-outline-success"  onClick="submitSearch(event)">Search</button>
-    </form>
+    <a class="navbar-brand" href="/mix-it/">Mix-iT!</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <svg class="navbar-toggler-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
+    </button>
+    <div style="background-color: #0b132b; width: 100%" class="collapse navbar-collapse rounded-bottom-3 p-3" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/mix-it/drinks/popular">Popular</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mix-it/drinks/new">New</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mix-it/drinks/random">Random</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Category
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/mix-it/drinks/category/Ordinary_Drink">Ordinary Drink</a></li>
+            <li><a class="dropdown-item" href="/mix-it/drinks/category/Cocktail">Cocktail</a></li>
+            <li><a class="dropdown-item" href="/mix-it/drinks/category/Shake">Shake</a></li>
+            <li><a class="dropdown-item" href="/mix-it/drinks/category/Shot">Shot</a></li>
+            <li><a class="dropdown-item" href="/mix-it/drinks/category/Coffee_+_Tea">Coffee / Tea</a></li>
+            <li><a class="dropdown-item" href="/mix-it/drinks/category/Beer">Beer</a></li>
+            <li><a class="dropdown-item" href="/mix-it/drinks/category/Soft_Drink">Soft Drink</a></li>
+            <li><a class="dropdown-item" href="/mix-it/drinks/category/Punch_+_Party_Drink">Punch / Party Drink</a></li>
+            <li><a class="dropdown-item" href="/mix-it/drinks/category/Homemade_Liqueur">Homemade Liqueur</a></li>
+            <li><a class="dropdown-item" href="/mix-it/drinks/category/Other_+_Unknown">Other / Unknown</a></li>
+          </ul>
+        </li>
+        {# <li class="nav-item">
+          <a class="nav-link">Filter</a>
+        </li> #}
+      </ul>
+      <form class="d-flex" role="search">
+        <input id="search-bar" list="autocompleteOptions" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <datalist id="autocompleteOptions">
+        </datalist>
+        <button id="searchBtn" class="btn"  onClick="submitSearch(event)">Search</button>
+      </form>
+    </div>
   </div>
 </nav>

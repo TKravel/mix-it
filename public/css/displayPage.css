@@ -1,21 +1,43 @@
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+#drinkCount {
+  color: #3a506b;
 }
 
-.thumb-card {
-  border-radius: 0.5rem;
+.page-nav {
+  margin: 3rem auto 5rem auto;
+}
+.pagination {
+  justify-content: center;
+}
+
+.page-link {
+  background-color: #61e5d1;
+  border: none;
+  color: #0b132b;
   cursor: pointer;
-  text-align: center;
-  margin: 1rem;
-  padding: 1rem;
+}
+.page-link:hover {
+  background-color: #6fffe9;
 }
 
-.thumb-card:hover {
-  background-color: lightgrey;
+.active-page {
+  background-color: #6fffe9;
+  border: none;
+  color: #0b132b;
+  cursor: pointer;
 }
 
-.img-thumb {
-  border-radius: 100%;
+.active-page:hover {
+  background-color: #3cf8dc;
+}
+
+.disabled-page {
+  background-color: gray;
+  border: none;
+  color: lightgray;
+  cursor: default;
+}
+
+.disabled-page:hover {
+  background-color: gray;
+  color: lightgray;
 }

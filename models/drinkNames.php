@@ -1,5 +1,6 @@
 <?php
 
+// drink name array used for auto suggest
 return array(
     "1-900-FUK-MEUP",
     "110 in the shade",
